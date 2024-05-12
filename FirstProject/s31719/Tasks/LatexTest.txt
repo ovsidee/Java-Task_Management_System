@@ -1,0 +1,7 @@
+The following sets are given :
+− $A = \left(−15, −10\right ] \cup \left (−5,0\ right ) \cup \left (5 ,10\←֓
+right ) $
+− $B = \left ( −\infty , −13 \right ] \cup \left(−8,−3\right ] $
+− $C = \left [ −4, \infty \right ) $
+Write a program to verify whether the integer variable val belongs to ←֓
+the intersection of these sets . \href{c : img \1. jpg}
