@@ -14,7 +14,7 @@ public
                     "To create the file write \"create\". \n" +
                     "To read the file write \"read\". \n" +
                     "To edit the file write \"edit\". \n" +
-                    "To stop the program write \"exit\".");
+                    "To exit from the Editing Module write \"exit\".");
             String userInput = scan.nextLine();
             userAction = Operations.fromString(userInput);
             if (userAction == null) {

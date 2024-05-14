@@ -1,44 +1,46 @@
-import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public
-    abstract class Content {
-
+     class Content {
+    String dataToDetect;
     public String content;
     public String latexFormula;
     public String imageFormula;
     public String taskContentFormula;
-    public List<Content> contentList = new ArrayList<Content>();
+    public List<Content> contentList = new ArrayList<>();
+    Map<String, List<Content>> fileContentMap = new HashMap<>();
 
     public String getLatexFormula(String content) {
         FormulaLatex formulaLatex = new FormulaLatex(content);
         String line = formulaLatex.getLatexFormula();
         this.latexFormula = line;
-        if(formulaLatex instanceof Content) {
+        if(!line.isEmpty()){
             contentList.add(formulaLatex);
         }
-        return line + "\n";
+        return line;
     }
 
     public String getImageFormula(String content) {
         Image image = new Image(content);
         String line = image.getExtractedImages();
         this.imageFormula = line;
-        if(image instanceof Content) {
+        if (!line.isEmpty()){
             contentList.add(image);
         }
-        return line + "\n";
+        return line;
     }
 
     public String getTextFormula(String content) {
         TaskContent taskContent = new TaskContent(content);
         String line = taskContent.getTaskContent();
         this.taskContentFormula = line;
-        if(taskContent instanceof Content) {
+        if (!line.isEmpty()) {
             contentList.add(taskContent);
         }
-        return line + "\n";
+        return line;
     }
 
 }

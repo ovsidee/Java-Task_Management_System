@@ -22,7 +22,7 @@ public class FormulaLatex extends Content {
                     latexFormulas.append(currentSetName).append(" ");
                     currentSetName = null; // Reset the set name after using it
                 }
-                latexFormulas.append(matcher.group(2)).append(System.getProperty("line.separator"));
+                latexFormulas.append(matcher.group(2)).append(" "); // replaced with a space
             }
         }
 

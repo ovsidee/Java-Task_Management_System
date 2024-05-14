@@ -12,7 +12,7 @@ public
 
     private String value;
 
-     Operations(String value) {
+    Operations(String value) {
         this.value = value;
     }
 
@@ -22,6 +22,7 @@ public
 
     public static Operations fromString(String userInputsTheAction){
         for (Operations operation : Operations.values()) {
+            //equalsIgnoreCase to don`t care about lower upperCase
             if (operation.value.equalsIgnoreCase(userInputsTheAction))
                 return operation;
         }
