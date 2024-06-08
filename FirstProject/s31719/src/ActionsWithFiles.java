@@ -1,6 +1,6 @@
 import java.io.File;
 
 public
-    interface ActionsWithFiles {
-    public boolean doesFileExist(File directory, String fileName);
+    interface ActionsWithFiles<T> {
+    T doesFileExist(File directory, String fileName);
 }

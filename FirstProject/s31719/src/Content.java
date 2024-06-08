@@ -10,8 +10,9 @@ public
     public String latexFormula;
     public String imageFormula;
     public String taskContentFormula;
+
     public List<Content> contentList = new ArrayList<>();
-    Map<String, List<Content>> fileContentMap = new HashMap<>();
+    Map<String, List<Content> > fileContentMap = new HashMap<>();
 
     public String getLatexFormula(String content) {
         FormulaLatex formulaLatex = new FormulaLatex(content);
@@ -27,7 +28,7 @@ public
         Image image = new Image(content);
         String line = image.getExtractedImages();
         this.imageFormula = line;
-        if (!line.isEmpty()){
+        if (!line.isEmpty()) {
             contentList.add(image);
         }
         return line;

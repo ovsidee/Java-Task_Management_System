@@ -35,10 +35,10 @@ public class CheckingModule {
                 new AccessTasks();
                 break;
             case NUMBER_OF_TASKS_BY_STUDENT_NAME:
-
+                new NumberOfTasksByName();
                 break;
             case SEQUENTIAL_TASKS:
-
+                new Sequential();
                 break;
             case KILL_PROGRAM:
                 exit = true;

@@ -16,20 +16,13 @@ public
 
             String nameOfTheFileToRead = scan.nextLine();
 
-            //TODO REPLACE WITH NEW PATH!
-            //TODO REPLACE WITH NEW PATH!
-            //TODO REPLACE WITH NEW PATH!
-            //TODO REPLACE WITH NEW PATH!
-            //TODO REPLACE WITH NEW PATH!
-            //TODO REPLACE WITH NEW PATH!
-
-            String directoryPath = "E:\\Java\\Java-First-Project\\FirstProject\\s31719\\Tasks";
+            String directoryPath = "./Tasks/";
 
             String filePath = directoryPath + "\\" + nameOfTheFileToRead + ".txt";
 
             File directory = new File(directoryPath);
 
-            if (nameOfTheFileToRead.equals(Operations.STOP.getText())) break;
+            if (nameOfTheFileToRead.equalsIgnoreCase(Operations.STOP.getText())) break;
 
             if (!doesFileExist(directory, nameOfTheFileToRead) ){
                 System.out.println("File does not exist\n");
@@ -56,8 +49,9 @@ public
         }
     }
 
+    //Boolean - object type, can have null, true, false. methods toString, value can be undefined or not yet set for example
     @Override
-    public boolean doesFileExist(File directory, String fileName) {
+    public Boolean doesFileExist(File directory, String fileName) {
         if (directory.exists() && directory.isDirectory()) {
             if(directory.listFiles() != null) {
                 return Arrays.stream(directory.listFiles() )

@@ -24,15 +24,7 @@ public
                 break;
             }
 
-            //TODO REPLACE WITH NEW PATH!
-            //TODO REPLACE WITH NEW PATH!
-            //TODO REPLACE WITH NEW PATH!
-            //TODO REPLACE WITH NEW PATH!
-            //TODO REPLACE WITH NEW PATH!
-            //TODO REPLACE WITH NEW PATH!
-
-
-            File directory = new File("E:\\Java\\Java-First-Project\\FirstProject\\s31719\\Tasks" +
+            File directory = new File("./Tasks/" +
                     "\\" + fileToEdit + ".txt");
 
             if (!doesFileExist(directory, fileToEdit)) {
@@ -45,7 +37,7 @@ public
                     "(or write \"stop\" to stop the input file) ");
             new WriteToFile(file);
 
-//rewriting the value of the map, because we edited our file
+        //rewriting the value of the map, because we edited our file
             this.dataToDetect = getDataToDetect(file.getAbsolutePath());
 
             this.content = getLatexFormula(dataToDetect);
@@ -59,22 +51,22 @@ public
             contentList.clear();// Clear the old contentList for the next file.
 
 
-            //TODO it is to show the content file
-//            System.out.println("Content for file " + fileToEdit + ":");
-//            if (contentList != null && !contentList.isEmpty()) {
-//                contentList.stream().forEach(System.out::println);
-//            }
-//            System.out.println("Key set in fileContentMap: " + fileContentMap.keySet());
-//            System.out.println("ENTER THE fileNameByTheUser ");
-//            String fileNameByTheUser = scan.nextLine();
-//            System.out.println(getContentListByFilename(fileNameByTheUser));
+            //it is to show the content file
+            System.out.println("Content for file " + fileToEdit + ":");
+            if (contentList != null && !contentList.isEmpty()) {
+                contentList.stream().forEach(System.out::println);
+            }
+            System.out.println("Key set in fileContentMap: " + fileContentMap.keySet());
+            System.out.println("ENTER THE fileNameByTheUser ");
+            String fileNameByTheUser = scan.nextLine();
+            System.out.println(getContentListByFilename(fileNameByTheUser));
 
         }
     }
-            //TODO it is to show the content file
-//    public List<Content> getContentListByFilename(String filename) {
-//        return fileContentMap.get(filename);
-//    }
+            //it is to show the content file
+    public List<Content> getContentListByFilename(String filename) {
+        return fileContentMap.get(filename);
+    }
 
     public String getDataToDetect(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
@@ -92,7 +84,7 @@ public
     }
 
     @Override
-    public boolean doesFileExist(File file, String fileName) {
+    public Boolean doesFileExist(File file, String fileName) {
         if (file.exists() && file.isFile() && file.getName().equals(fileName + ".txt")) {
             return true;
         } else {

@@ -8,16 +8,10 @@ public
     class TaskCreator
         extends Content implements ActionsWithFiles {
 
-
     public TaskCreator() {
         Scanner scan = new Scanner(System.in);
         while (true) {
-            //TODO REPLACE WITH NEW PATH!
-            //TODO REPLACE WITH NEW PATH!
-            //TODO REPLACE WITH NEW PATH!
-            //TODO REPLACE WITH NEW PATH!
-            //TODO REPLACE WITH NEW PATH!
-            String fullPath = "E:\\Java\\Java-First-Project\\FirstProject\\s31719\\Tasks";
+            String fullPath = "./Tasks/";
             File directory = new File(fullPath);
 
             File txtFile = createTxtFileInDirectory(directory);
@@ -40,27 +34,31 @@ public
                         (Arrays.asList(contentList.toArray(new Content[0]))));
                 contentList.clear(); // Clear the old contentList for the next file.
 
+                System.out.println("Do you want to link your task? \n" +
+                                    "Write \"Yes\" or \"No\" ");
+                String answer = scan.nextLine();
 
+                if (answer.equalsIgnoreCase("Yes")) new Linking(fileName);
+                else continue;
 
-                //TODO it is to show the content file
-
-//                System.out.println("Content for file " + fileName + ":");
-//                if (contentList != null && !contentList.isEmpty()) {
-//                    contentList.stream().forEach(System.out::println);
-//                }
-//                System.out.println("Key set in fileContentMap: " + fileContentMap.keySet());
-//                System.out.println("ENTER THE fileNameByTheUser ");
-//                String fileNameByTheUser = scan.nextLine();
-//                System.out.println(getContentListByFilename(fileNameByTheUser));
+                // it is to show the content file
+                System.out.println ("Content for file " + fileName + ":");
+                if (contentList != null && !contentList.isEmpty()) {
+                    contentList.stream().forEach(System.out::println);
+                }
+                System.out.println("Key set in fileContentMap: " + fileContentMap.keySet());
+                System.out.println("ENTER THE fileNameByTheUser ");
+                String fileNameByTheUser = scan.nextLine();
+                System.out.println(getContentListByFilename(fileNameByTheUser));
             } else {
                 break;
             }
         }
     }
-            //TODO it is to show the content file
-//    public List<Content> getContentListByFilename(String filename) {
-//        return fileContentMap.get(filename);
-//    }
+            //it is to show the content file
+    public List<Content> getContentListByFilename(String filename) {
+        return fileContentMap.get(filename);
+    }
 
     public File createTxtFileInDirectory(File directory) {
         Scanner scan = new Scanner(System.in);
@@ -124,7 +122,7 @@ public
     }
 
     @Override
-    public boolean doesFileExist(File directory, String fileName) {
+    public Boolean doesFileExist(File directory, String fileName) {
         if (directory.exists() && directory.isDirectory()) {
             return Arrays.stream(directory.listFiles())
                     .anyMatch(file -> file.isFile()

@@ -9,7 +9,7 @@ public
     public Image(String content) {
         this.content = content;
 
-        Pattern pattern = Pattern.compile("(\\\\href\\{(.*?(jpg|jpeg|png|gif))\\})|(^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*\\.(jpg|jpeg|png|gif)$)");
+        Pattern pattern = Pattern.compile("\\\\href\\{(.*?)\\}");
         Matcher matcher = pattern.matcher(content);
 
         StringBuilder images = new StringBuilder();

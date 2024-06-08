@@ -2,8 +2,8 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class NumberOfSolutions {
-    public int count;
+public
+    class NumberOfSolutions extends Solutions {
 
     public NumberOfSolutions(){
         while (true){
@@ -13,23 +13,19 @@ public class NumberOfSolutions {
             String fileName = scan.nextLine();
             if (fileName.equalsIgnoreCase(CheckingOperations.STOP.getText())) break;
 
-            this.count = countSolutions(fileName);
+            super.count = countSolutions(fileName);
             System.out.println("The amount of received solution to the " + fileName + " is: \n" + this.count);
         }
     }
 
+    @Override
     public int countSolutions(String taskName) {
-        //TODO DELETE PATH
-        //TODO DELETE PATH
-        //TODO DELETE PATH
-        //TODO DELETE PATH
-        //TODO DELETE PATH
-        //TODO DELETE PATH
-        //TODO DELETE PATH
-        File studentsPath = new File("E:\\Java\\Java-First-Project\\FirstProject\\s31719\\Students");
+
+        File studentsPath = new File("./Students/");
         File[] studentFolders = studentsPath.listFiles();
         int count = 0;
-        System.out.println(Arrays.toString(studentFolders));
+        //printing array
+//        System.out.println(Arrays.toString(studentFolders));
 
         // Iterate over each student's folder (by their path)
         for (File studentFolder : studentFolders) {
